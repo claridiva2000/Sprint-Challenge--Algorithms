@@ -99,6 +99,31 @@ class SortingRobot:
         # Fill this out
         pass
 
+"""
+1. swap none for first card
+2. set the light to 'on'/ to start the game
+3.while light is 'on' 
+    4.while robot can move right
+        move right
+
+        5.if compare item == 1: (item in hand is bigger than item in list)
+            swap item
+    6.while comparare_item != none:
+        move left
+    
+    7. swap item
+    
+    8. if robot can move right and the compared item == none:
+            move right 
+            swap item
+        else:
+            set light 'off'
+
+
+
+        
+
+"""
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
@@ -110,3 +135,5 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+
