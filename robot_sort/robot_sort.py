@@ -96,16 +96,59 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # 1. set the light to 'on'/ to start the game
+        self.set_light_on()
+        while self.light_is_on() == True:
+            if self.compare_item() == None:
+                self.swap_item()
+                self.move_right()
+            
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
 
+            elif self.compare_item() == -1:
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+        while True:
+            self.swap_item()
+            self. move_right()
+
+            if self.compare_item() ==1:
+                self.swap_item()
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+                self.set_light_on()
+            else:
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            
+            while self.can_move_left():
+                self.move_left()
+        self.set_light_off()
+
+
+
+
+
+
+
+
+
+        # Fill this out
+        
 """
-1. swap none for first card
-2. set the light to 'on'/ to start the game
-3.while light is 'on' 
+1. set the light to 'on'/ to start the game
+2. swap none for first card
+3.while light is 'on' == true
     4.while robot can move right
         move right
-
         5.if compare item == 1: (item in hand is bigger than item in list)
             swap item
     6.while comparare_item != none:
