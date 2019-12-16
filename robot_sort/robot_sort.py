@@ -96,77 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # 1. set the light to 'on'/ to start the game
-        self.set_light_on()
-        while self.light_is_on() == True:
-            if self.compare_item() == None:
-                self.swap_item()
-                self.move_right()
-            
-            if self.compare_item() == 1:
-                self.swap_item()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
-
-            elif self.compare_item() == -1:
-                self.move_left()
-                self.swap_item()
-                self.move_right()
         while True:
-            self.swap_item()
-            self. move_right()
-
-            if self.compare_item() ==1:
-                self.swap_item()
-                self.move_left()
-                self.swap_item()
-                self.move_right()
+            # 1. set the light to 'on'/ to start the game
+            if not self.light_is_on():
                 self.set_light_on()
+            #if the robot is able to move right and the card held is smaller or None, then swap and move right
+                while self.can_move_right():
+                    if self.compare_item() != 1:
+                        self.swap_item()
+                    self.move_right()
+            #if robot is holding a smaller number, swap
+                if self.compare_item() == -1:
+                    self.swap_item()
+            #while the robot is able to move left 
+                while self.can_move_left():
+                    #since the robot is going the opposit direction, we swap if the held card is bigger
+                    if self.compare_item() == 1:
+                        self.swap_item()
+                    self.move_left()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    
             else:
-                self.move_left()
-                self.swap_item()
-                self.move_right()
+                self.set_light_off()
+            
+
 
             
-            while self.can_move_left():
-                self.move_left()
-        self.set_light_off()
 
-
-
-
-
-
-
-
-
-        # Fill this out
-        
-"""
-1. set the light to 'on'/ to start the game
-2. swap none for first card
-3.while light is 'on' == true
-    4.while robot can move right
-        move right
-        5.if compare item == 1: (item in hand is bigger than item in list)
-            swap item
-    6.while comparare_item != none:
-        move left
-    
-    7. swap item
-    
-    8. if robot can move right and the compared item == none:
-            move right 
-            swap item
-        else:
-            set light 'off'
-
-
-
-        
-
-"""
 
 if __name__ == "__main__":
     # Test our your implementation from the command line

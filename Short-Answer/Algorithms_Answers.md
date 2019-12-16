@@ -33,7 +33,7 @@ def eggdrop(n):
       broken == True:
       return cur_floor
 
-but just incase that doesns't work here's linear O(n) assuming an egg dropped from the roof is guaranteed to break we go down one floor until the eggs no longer break when dropped:
+but just incase that doesns't work here's linear O(n) assuming an egg dropped from the roof is guaranteed to break we go down one floor until the eggs no longer break when dropped an return that as the safe floor:
 
 def eggdrop(n)
 starting floor = n
