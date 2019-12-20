@@ -96,8 +96,33 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        while True:
+            # 1. set the light to 'on'/ to start the game
+            if not self.light_is_on():
+                self.set_light_on()
+            #if the robot is able to move right and the card held is smaller or None, then swap and move right
+                while self.can_move_right():
+                    if self.compare_item() != 1:
+                        self.swap_item()
+                    self.move_right()
+            #if robot is holding a smaller number, swap
+                if self.compare_item() == -1:
+                    self.swap_item()
+            #while the robot is able to move left 
+                while self.can_move_left():
+                    #since the robot is going the opposit direction, we swap if the held card is bigger
+                    if self.compare_item() == 1:
+                        self.swap_item()
+                    self.move_left()
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    
+            else:
+                self.set_light_off()
+            
+
+
+            
 
 
 if __name__ == "__main__":
@@ -110,3 +135,5 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+
